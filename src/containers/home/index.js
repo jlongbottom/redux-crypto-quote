@@ -38,31 +38,33 @@ class Home extends React.Component {
   render() {
     if (this.props.account.fetching) {
       return (
-        <div>Loading...</div>
+        <h1>Loading...</h1>
       )
     }
 
     return (
       <form onSubmit={this.tradeSubmit}>
-        <h2>Account Balance</h2>
-        <div>USD {this.props.account.balanceUSD}</div>
-        <div>BTC {this.props.account.balanceBTC}</div>
-
-        <h2>Trade</h2>
-        <div>
-          <input type="text" value="USD" disabled />
-        </div>
-        <div>
-          <input type="number" step="0.01" ref="amount" onBlur={this.getQuote}/>
+        <label>Account Balance</label>
+        <div className="holdings">
+          <div>USD {this.props.account.balanceUSD}</div>
+          <div>BTC {this.props.account.balanceBTC}</div>
         </div>
 
-        <h2>For</h2>
-        <div>
-          <input type="text" value="BTC" disabled />
+        <label>Trade</label>
+        <div className="row currency">
+          USD
+        </div>
+        <div className="row">
+          <input type="number" step="0.01" ref="amount" defaultValue={0.0} onBlur={this.getQuote}/>
         </div>
 
-        <div>
-          {this.props.account.quote > 0 ? this.props.account.quote + 'BTC' : ''}
+        <label>For</label>
+        <div className="row currency">
+          BTC
+        </div>
+
+        <div className="row currency quoteBox">
+          {this.props.account.quote > 0 ? this.props.account.quote + ' BTC' : ''}
         </div>
 
         <div>

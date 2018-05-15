@@ -5,7 +5,7 @@ React redux crypto quote generator.
 ## Installation
 
 ```bash
-git git@github.com:jlongbottom/redux-crypto-quote.git
+git clone git@github.com:jlongbottom/redux-crypto-quote.git
 cd redux-crypto-quote
 yarn
 ```
